@@ -5,6 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'AngularProject';
+  title = 'JioMeet';
+  homeTitle= 'Home';
+  chatTitle= 'Chat';
+  meetTitle= 'Meeting';
+  contactTitle= 'Contact';
 }

@@ -1,0 +1,54 @@
+<table style="width: 100%;">
+    <tr>
+        <th style="width: 20%; vertical-align: top;">
+            <div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateChatModal"
+                    style="background: #425BA3;"> CreateChat</button>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let user of chatCollection" (click)="selectedChat(user)">
+                    <div class="fw-bold">{{user.name}}</div>
+                </li>
+            </ul>
+        </th>
+        <th style="width: 1%; vertical-align: top;">
+            <div style="border-left: 1px solid black;
+                  height: 100vh;"></div>
+        </th>
+        <th style="width: 79%; vertical-align: top; background-color: gray;">
+            <div [ngStyle]="{'visibility':isChatDetailVisible ? 'visible' : 'hidden'}">
+                <app-chat-detail #childChatDetailComponent></app-chat-detail>
+            </div>
+        </th>
+    </tr>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="CreateChatModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create Chat</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Meeting Title</label>
+                    <input type="text" [(ngModel)]="ChatName" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Person Name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Description</label>
+                    <input type="text" [(ngModel)]="Message" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Hello World">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modelClose"
+                    #closeCreateChatModal>Close</button>
+                <button type="button" class="btn btn-primary" (click)="AddNewChatThraed()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>

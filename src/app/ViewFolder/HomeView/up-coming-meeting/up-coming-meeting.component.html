@@ -1,0 +1,21 @@
+<div>
+  <div id="divValidation" *ngIf="this.meetingList.length===0; else elseBlock">No Upcoming Meeting.</div>
+  <ng-template #elseBlock>
+    <div id="divMeetList">
+      <ul>
+        <li class="list-group-item" *ngFor="let meet of meetingList" (click)="selectedMeet(meet)">
+          <div class="shadow p-3 bg-body-tertiary rounded"
+            style="margin-top: 5px;margin-right: 10px;border: 1px solid black; ">
+            <div>
+              <h6 class="card-text">{{meet.meetTitle}}</h6>
+              <p class="card-text" style="margin-top: 2px;">Host : {{meet.host}}</p>
+              <button class="btn btn-sm btn-success" style="margin-right:5px">Start</button>
+              <button class="btn btn-sm btn-danger" (click)="meetDelete(meet)"><i
+                  class="bi bi-trash3"></i>Delete</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+</div>

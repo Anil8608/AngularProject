@@ -1,0 +1,30 @@
+<table style="width: 100%;">
+  <tr>
+    <th style="width: 25%; vertical-align: top;">
+      <div style="margin-left: 170px;margin-top: 5px;">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          style="background: #425BA3;">
+          Create Meeting
+        </button>
+      </div>
+      <div style="margin-top: 5px;">
+        <app-up-coming-meeting (meetingSelected)="seletedMeeting($event)"></app-up-coming-meeting>
+      </div>
+    </th>
+    <th style="width: 1%; vertical-align: top;">
+      <div style="border-left: 1px solid black;
+            height: 100vh;"></div>
+    </th>
+    <th style="width: 74%; vertical-align: top;">
+      <app-meeting-detail [ngStyle]="{'visibility':isMeetingDetailVisible ? 'visible' : 'hidden'}" (hideMeetingDetail)="hideMeetingDetail()"></app-meeting-detail>
+    </th>
+  </tr>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <app-create-meeting (addMeeting)="createMeet($event)"></app-create-meeting>
+  </div>
+</div>
