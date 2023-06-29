@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { ChatDetailsModel } from 'src/app/Model/ChatDetailsModel';
 import { ChatService } from 'src/app/Service/chat.service';
 import { ChatDetailComponent } from '../chat-detail/chat-detail.component';
@@ -22,7 +22,7 @@ export class RecentViewComponent {
    isChatDetailVisible: boolean;
 
 
-   constructor(private _chatServices: ChatService) {
+   constructor(@Inject('IChatService') private iChatService:ChatService) {
       this.LoadChatCollection();
       this.isChatDetailVisible = false;
    }
@@ -36,7 +36,7 @@ export class RecentViewComponent {
    //Get request : Get data from API
    LoadChatCollection()
    {
-      this._chatServices.getChatList().subscribe((data) => {
+      this.iChatService.getChatList().subscribe((data) => {
             console.warn("data", data);
             this.chatCollection = data;
          })
@@ -51,7 +51,7 @@ export class RecentViewComponent {
   
       }
   
-      this._chatServices.AddChatUser(newUser).subscribe((reponce) => {
+      this.iChatService.AddChatUser(newUser).subscribe((reponce) => {
         console.warn("Responce", reponce);
       });
   

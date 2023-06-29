@@ -15,6 +15,10 @@ import { ServiceMessageService } from './service-message.service';
 import { ChatDetailComponent } from './ViewFolder/ChatViews/chat-detail/chat-detail.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LogginInterceptorInterceptor } from './Service/loggin-interceptor.interceptor';
+import { ChatService } from './Service/chat.service';
+import { IChatService } from './Model/Ichatservice';
+import { SqrtPipe } from './Shared/Pipes/SqrtPipe';
+
 
 @NgModule({
   declarations: [
@@ -27,14 +31,20 @@ import { LogginInterceptorInterceptor } from './Service/loggin-interceptor.inter
     ContactDirComponent,
     DashBoardComponent,
     MeetingDetailComponent,
-    ChatDetailComponent
-  ],
+    ChatDetailComponent,
+    SqrtPipe
+    ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule, HttpClientModule
   ],
   providers: [ServiceMessageService,
-  {provide:HTTP_INTERCEPTORS,useClass:LogginInterceptorInterceptor,multi:true}],
+  {provide:HTTP_INTERCEPTORS,useClass:LogginInterceptorInterceptor,multi:true},
+  {
+    provide: 'IChatService',
+    useClass: ChatService
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

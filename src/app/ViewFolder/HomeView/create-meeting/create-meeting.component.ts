@@ -4,7 +4,8 @@ import { MeetModel } from 'src/app/Model/MeetingModel';
 @Component({
   selector: 'app-create-meeting',
   templateUrl: './create-meeting.component.html',
-  styleUrls: ['./create-meeting.component.css']
+  styleUrls: ['./create-meeting.component.css'],
+  
 })
 export class CreateMeetingComponent {
 

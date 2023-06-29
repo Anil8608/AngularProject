@@ -4,7 +4,7 @@ import { ChatService } from "src/app/Service/chat.service";
 export class ChatBaseComponent {
 
   chatMessage: string;
-  constructor(_chatService: ChatService) {
+  constructor() {
 
   }
 

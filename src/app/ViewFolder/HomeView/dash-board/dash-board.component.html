@@ -1,4 +1,12 @@
-<p>dashboard-detail works!</p>
 <div [ngStyle]="{'visibility':isDivVisible ? 'visible' : 'hidden'}">
-    <div>Col 1</div>
+
+    <div>
+        <h1>{{title|uppercase}}</h1>
+        <b>Square root of 25 is: {{25 | sqrt}}</b>
+        <br />
+        <b>Square root of 49 is: {{valueRecd}}</b>
+        <br/>
+        <input #myTitle (keyup)="myTitlekeyup(myTitle.value)"/>
+        <button (click)="GetValue()">Get Input</button>
+    </div>
 </div>

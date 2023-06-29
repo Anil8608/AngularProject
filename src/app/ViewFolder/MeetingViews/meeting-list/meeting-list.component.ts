@@ -25,19 +25,19 @@ export class MeetingListComponent {
   }
 
   createMeet(meet: MeetModel) {
+    if (meet == null || meet.meetTitle == "") {
+      return;
+    }
     this._serviceMessage.createMeet(meet);
-
   }
 
   seletedMeeting(meet: MeetModel) {
     this.selectedMeetItem = meet;
     this.isMeetingDetailVisible = true;
     this._serviceMessage.setSelectedMeet(meet);
-
   }
 
-  hideMeetingDetail()
-  {
+  hideMeetingDetail() {
     this.isMeetingDetailVisible = false;
   }
 
